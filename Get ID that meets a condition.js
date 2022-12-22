@@ -18,6 +18,7 @@ function processLogs(logs, maxSpan) {
 	const arr = []
 	const result = []
 
+	// Converting array of strings to an array of objects
 	for (let i = 0; i < logs.length; i++) {
 		let splited = logs[i].split(" ")
 		let id = splited[0]
@@ -32,8 +33,11 @@ function processLogs(logs, maxSpan) {
 		if (splited[2] === "sign-out") newObj.signOut = splited[1]
 
 		arr.push(newObj)
+
+		console.log(newObj)
 	}
 
+	// Combining the objects with the same ID maintaining the filled properties
 	for (const object of arr) {
 		const existingObject = result.find((obj) => obj.id === object.id)
 		if (existingObject) {
@@ -54,6 +58,7 @@ function processLogs(logs, maxSpan) {
 		}
 	}
 
+	// Returning an array of IDs that meets the condition
 	const timeDeltaIDs = result
 		.filter((obj) => obj.timeDelta <= maxSpan)
 		.map((obj) => obj.id)
