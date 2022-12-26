@@ -1,5 +1,9 @@
 var hammingWeight = function (n) {
-	let count = 0
+
+  return n
+		.toString(2)
+		.split("")
+		.filter((num) => num != 0).length
 }
 
 console.log(hammingWeight(00000000000000000000000000001011))
