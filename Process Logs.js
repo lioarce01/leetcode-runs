@@ -37,13 +37,13 @@ function processLogs(logs, maxSpan) {
 console.log(
 	processLogs(
 		[
-			"30 90 sign-in",
-			"30 120 sign-out",
-			"22 80 sign-in",
-			"22 90 sign-out",
-			"10 20 sign-in",
-			"10 60 sign-out",
-			"35 80 sign-in",
+			"30 99 sign-in",
+			"30 105 sign-out",
+			"12 100 sign-in",
+			"20 80 sign-in",
+			"12 120 sign-out",
+			"20 101 sign-out",
+			"21 110 sign-in",
 		],
 		20
 	)
