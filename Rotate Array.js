@@ -1,13 +1,27 @@
-var rotate = function (nums, k) {
-	let tmp = 0
-	const len = nums.length
-	k %= len
+function rotate(nums, k) {
+  if (!nums.length) return [];
 
-	for (let i = 0; i < k; i++) {
-		tmp = nums.pop()
-		nums.unshift(tmp)
-	}
-	return nums
+  if (k > 0) {
+    k = k % nums.length;
+    reverse(nums, 0, nums.length - 1);
+    reverse(nums, 0, k - 1);
+    reverse(nums, k, nums.length - 1);
+  }
+
+  return nums;
+};
+
+function reverse(arr, start, end) {
+  if (!arr || !arr.length || start >= end) return;
+
+  while (start < end) {
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++, end--;
+  }
+
+  return arr;
 }
 
 console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3))
