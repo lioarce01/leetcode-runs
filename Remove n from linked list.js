@@ -8,7 +8,7 @@ function ListNode(val, next) {
 		let i = 0
 
 		while (i < n) {
-			//while i < n (removed element)
+			//while i < n (nth element to remove)
 			fast = fast.next //fast pointer go to next element
 			i++
 		}
