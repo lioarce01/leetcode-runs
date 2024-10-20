@@ -1,9 +1,9 @@
 var twoSum = function (numbers, target) {
-  let i = 1;
-  let j = numbers.length;
+  let i = 0;
+  let j = numbers.length - 1;
 
   while (i < j) {
-    const sum = numbers[i - 1] + numbers[j - 1];
+    const sum = numbers[i] + numbers[j];
     if (sum === target) {
       return [i, j];
     } else if (sum < target) {
