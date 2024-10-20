@@ -1,14 +1,7 @@
-var containsDuplicate = function(nums) {
-  let arr = []
-  let twice = false
+const containsDuplicate = (nums) => {
+  const set = new Set(nums);
 
-  for(let i = 0; i < nums.length; i++) {
-      if(!arr.includes(nums[i])) {
-          arr.push(nums[i])
-      }
-  }
-
-  return nums.length !== arr.length 
+  return nums.length !== set.size;
 };
 
-console.log(containsDuplicate([1,1,1,3,3,4,3,2,4,2]))
+console.log(containsDuplicate([1, 2, 3, 1]));

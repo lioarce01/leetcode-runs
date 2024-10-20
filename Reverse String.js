@@ -1,19 +1,22 @@
 var reverseString = function (s) {
-	let start = 0
-	let end = s.length - 1
+  const n = s.length;
+  const res = new Array(n);
 
-	let temp
+  let left = 0;
+  let right = n - 1;
 
-	while (start < end) {
-		if (s[start] !== s[end]) {
-			temp = s[start]
-			s[start] = s[end]
-			s[end] = temp
-		}
-		start++
-		end--
-	}
-	return s
-}
+  while (left < right) {
+    let temp = s[left];
+    s[left] = s[right];
+    s[right] = temp;
 
-console.log(reverseString(["h", "e", "l", "l", "o"]))
+    left++;
+    right--;
+  }
+
+  return res;
+
+  //or s.reverse()
+};
+
+console.log(reverseString(["h", "e", "l", "l", "o"]));

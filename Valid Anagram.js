@@ -1,14 +1,23 @@
-var isAnagram = function (s, t) {
-	s = s.split("").sort().join("")
-	t = t.split("").sort().join("")
+const isAnagram = (s, t) => {
+  if (s.length !== t.length) return false;
 
-	if (s.length !== t.length) return false
+  let map = new Map();
 
-	for (let i = 0; i < s.length; i++) {
-		if (s[i] !== t[i]) return false
-	}
+  for (let char of s) {
+    map.set(char, (map.get(char) || 0) + 1);
+  }
 
-	return true
-}
+  for (let char of t) {
+    if (!map.has(char) || map.get(char) === 0) {
+      return false;
+    }
+    map.set(char, map.get(char) - 1);
+  }
 
-console.log(isAnagram("anagram", "nagaram"))
+  return true;
+};
+
+console.log(isAnagram("anagram", "nagaram"));
+console.log(isAnagram("rat", "car"));
+console.log(isAnagram("aacc", "ccac"));
+console.log(isAnagram("ab", "a"));
